@@ -1,7 +1,8 @@
 body{
 	font-family: arial;
-	background-color: #F5F8FF;
+	
 }
+
 
 #nombreUsu{
 	padding-right: 20px;
@@ -9,6 +10,11 @@ body{
 
 #logoUfps{
     width: 215px;
+}
+
+#logoNotas{
+    width: 500px;
+    
 }
 .contenido form{
 
@@ -51,8 +57,9 @@ font-size: 17px;
 
 
 header{
-	background-color: #F1F1F1;
+	
 	height: 100px;
+    text-align: center;
 }
 h1{
 	text-align: right;
@@ -85,11 +92,6 @@ h1{
 	height: 50px;	
 }
 
-.informacion{
-	float: left;
-	margin:10px;
-	width: 65%;	
-}
 
 .submenu a:hover{
 	background-color: rgba(111, 138, 138, 0.4); 
@@ -134,40 +136,24 @@ li a.active {
     }
 }
 
+table{
+    width: 75%;
+}
 
 
 table th{
     background-color: #bdbdbd5d;
-    border: 1px solid black;
-    padding: 3px;
+    
+    
 }
 table td{
-    border: 1px solid black;
+    
     padding: 4px;
     text-align: center;
 
 }
 
-.informacion{
-    float: left;
-    width: 65%;
-}
 
-.noticias{
-    float: right;
-    width: 30%;
-}
-
-.noticias a{
-    display: block;
-    padding: 14px 16px;
-    text-decoration: none; 
-}
-
-.noticias a:hover{
-    background-color: #ddd;
-    color: #000000;
-}
 
 @media (max-width: 480px) { 
 

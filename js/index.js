@@ -10,8 +10,8 @@ document.getElementById('ingresar').onclick = function(){
      
  
  
-     var url = '';
-     var data = {contra: contras, usuario: nombreUsuario};
+     var url = 'https://api-parcial.crangarita.repl.co/login';
+     var data = {codigo: codigo, clave: contras};
      
      fetch(url, {
        method: 'POST', // or 'PUT'
@@ -20,13 +20,21 @@ document.getElementById('ingresar').onclick = function(){
          'Content-Type': 'application/json'
        }
      }).then(res => res.json())
-     .catch(error => console.error('Error:', error))
+     .catch(error => {
+         console.error('Error:', error)
+         alert(`Credenciales No validas`);
+         codigo.value="";
+         contras.value="";
+     })
      .then(response => {
+
        console.log('Success:', response);
- 
+       localStorage.setItem("nombre", response.nombre);
+       localStorage.setItem("codigo", response.codigo);
+       window.location.href="html/notas.html";
        
   
-       //window.location.href="../html/dashboard.html";
+       
      }
  );
  
