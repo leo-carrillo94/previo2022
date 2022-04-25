@@ -6,9 +6,9 @@ $fragment = document.createDocumentFragment();
 var codigo = localStorage.getItem("codigo");
 var nombre = localStorage.getItem("nombre");
 
-document.getElementById("codigo").innerHTML = codigo;
-document.getElementById("nombre").innerHTML = nombre;
-console.log(codigo);
+document.getElementById("codigo").innerHTML = `Codigo: ${codigo}`;
+document.getElementById("nombre").innerHTML = `Nombre: ${nombre}`;
+
 
 
 
@@ -26,7 +26,14 @@ headers:{
 .catch(error => console.error('Error:', error))
 .then(response =>{
 
+console.log(`este es la respuesta...${response}`);
 response.forEach(el=> {
+
+
+    let p1= parseInt(el.n1,10);
+    let p2= parseInt(el.n2,10);
+    let p3= parseInt(el.n3,10);
+    let ef= parseInt(el.ex,10);
 
     $template.querySelector(".asignatura").textContent = el.asignatura;
     $template.querySelector(".cre").textContent = el.creditos;
@@ -35,7 +42,7 @@ response.forEach(el=> {
     $template.querySelector(".p3").textContent = el.n3;
     $template.querySelector(".ef").textContent = el.ex;
     
-var defi = (((el.n1 + el.n2 + el.n3)/3)*0.7)+(el.ex*0.3);
+var defi = (((p1 + p2 + p3)/3)*0.7)+(ef*0.3);
 $template.querySelector(".def").textContent = defi;
 
     let $clon = document.importNode($template, true);
@@ -45,12 +52,15 @@ $template.querySelector(".def").textContent = defi;
 
 $datos.querySelector("tbody").appendChild($fragment);
 
+document.getElementById
+
 }
 );
 
-document.getElementById("salir").onclick() = function{
+document.getElementById("salir").onclick = function(){
     localStorage.removeItem("codigo");
     localStorage.removeItem("nombre");
+    window.location.href="../index.html";
 }
 
 

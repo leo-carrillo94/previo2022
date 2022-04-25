@@ -1,3 +1,7 @@
+if(localStorage.getItem("codigo")!=null) {
+  window.location.href="html/notas.html";
+}
+
 
 document.getElementById('ingresar').onclick = function(){
   
@@ -21,21 +25,26 @@ document.getElementById('ingresar').onclick = function(){
        }
      }).then(res => res.json())
      .catch(error => {
-         console.error('Error:', error)
+         console.error('Error:', error);
          alert(`Credenciales No validas`);
-         codigo.value="";
-         contras.value="";
+ 
+         
      })
      .then(response => {
 
-       console.log('Success:', response);
+      if (!response.login) {
+        alert(`Credenciales No validas`);
+        document.getElementById("codigo").value = "";
+        document.getElementById("contraU").value = "";
+        
+      }else{
+      
        localStorage.setItem("nombre", response.nombre);
        localStorage.setItem("codigo", response.codigo);
        window.location.href="html/notas.html";
        
-  
-       
      }
+    }
  );
  
    
